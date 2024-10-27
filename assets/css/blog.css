@@ -60,6 +60,7 @@ main {
 
 #name-wrapper {
     text-decoration: underline;
+    font-weight: bold;
     margin-left: 1rem;
 }
 
