@@ -58,6 +58,11 @@ main {
     max-width: 100px;
 }
 
+#name-wrapper {
+    text-decoration: underline;
+    margin-left: 1rem;
+}
+
 #bio-wrapper {
     margin-left: 1rem;
 }
