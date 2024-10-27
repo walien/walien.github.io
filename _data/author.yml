@@ -1,0 +1,15 @@
+name: Elian ORIOU
+dp: https://avatars.githubusercontent.com/u/1632535?s=400&v=4
+description: "
+  Technical leader @4sh.
+  Passionated by code.
+  I'm working on micro services architectures using kotlin, gRPC, kafka and mongodb ecosystems.
+"
+email: contact@walien.tech
+contact:
+  - title: linkedin
+    url: https://www.linkedin.com/in/eoriou
+  - title: github
+    url: https://github.com/walien
+  - title: email
+    url: mailto:contact@walien.tech
