@@ -1,0 +1,86 @@
+---
+import { SITE_TITLE } from '../consts';
+import HeaderLink from './HeaderLink.astro';
+import SocialLinks from './SocialLinks.astro';
+import ThemeToggle from './ThemeToggle.astro';
+---
+
+<header>
+	<nav>
+		<h2><a href="/">{SITE_TITLE}</a></h2>
+		<div class="internal-links">
+			<HeaderLink href="/">About</HeaderLink>
+			<!--<HeaderLink href="/blog">Blog</HeaderLink>-->
+		</div>
+		<div class="right">
+			<SocialLinks size={24} />
+		</div>
+	</nav>
+</header>
+<style>
+	header {
+		margin: 0;
+		padding: 0 1.5em;
+		background: var(--header-bg);
+		border-bottom: 1px solid rgb(var(--gray-light));
+	}
+	h2 {
+		margin: 0;
+		font-size: 0.95em;
+	}
+
+	h2 a,
+	h2 a.active {
+		text-decoration: none;
+		font-family: var(--font-mono);
+		font-weight: 500;
+		letter-spacing: 0.04em;
+		color: rgb(var(--black));
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		height: 56px;
+	}
+	.internal-links a {
+		padding: 0 0.5em;
+		color: rgb(var(--gray));
+		border-bottom: 2px solid transparent;
+		text-decoration: none;
+		font-size: 0.9em;
+		letter-spacing: 0.03em;
+		transition: color 0.2s;
+	}
+	.internal-links a:hover {
+		color: rgb(var(--black));
+	}
+	.internal-links a.active {
+		color: rgb(var(--black));
+		border-bottom-color: var(--accent);
+	}
+	.right {
+		display: flex;
+		align-items: center;
+		gap: 0.25em;
+	}
+	.right :global(.social-links) {
+		align-items: center;
+	}
+	.right :global(.social-links a) {
+		display: flex;
+		align-items: center;
+		padding: 0.25em;
+		color: rgb(var(--gray));
+		transition: color 0.2s;
+	}
+	.right :global(.social-links a:hover) {
+		color: rgb(var(--black));
+		opacity: 1;
+	}
+	@media (max-width: 720px) {
+		.right :global(.social-links) {
+			display: none;
+		}
+	}
+</style>

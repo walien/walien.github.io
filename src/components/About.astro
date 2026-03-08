@@ -1,0 +1,198 @@
+---
+import {AVATAR_URL, OWNER} from '../consts.ts';
+---
+
+<section class="about">
+	<div class="avatar-wrap">
+		<img src={AVATAR_URL} alt={OWNER} width="160" height="160" loading="eager" />
+	</div>
+
+	<div class="identity">
+		<p class="role">
+			<span class="role-label">Technical Leader & Manager</span>
+			<span class="sep">·</span>
+			<a href="https://www.4sh.fr" class="company">@4sh</a>
+		</p>
+		<h1 class="name">{OWNER}</h1>
+	</div>
+
+	<div class="divider">
+		<span></span><span class="diamond">◆</span><span></span>
+	</div>
+
+	<div class="bio">
+		<p>Passionate about both the business and technical sides of software engineering.</p>
+		<p>On the domain side, I specialize in <em>logistics</em> — particularly port and airport operations.</p>
+		<p>On the technical side, I design event-driven microservices architectures.</p>
+	</div>
+
+	<div class="stack">
+		{['Kotlin', 'gRPC', 'Kafka', 'MongoDB', 'Event-Driven'].map(tag => (
+			<span class="tag">{tag}</span>
+		))}
+	</div>
+</section>
+
+<style>
+	@keyframes fadeUp {
+		from { opacity: 0; transform: translateY(16px); }
+		to   { opacity: 1; transform: translateY(0); }
+	}
+
+	.about {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
+		padding: 0 1rem 3rem;
+	}
+
+	.avatar-wrap { animation: fadeUp 0.5s ease both; animation-delay: 0ms; }
+	.identity    { animation: fadeUp 0.5s ease both; animation-delay: 80ms; }
+	.divider     { animation: fadeUp 0.5s ease both; animation-delay: 160ms; }
+	.bio         { animation: fadeUp 0.5s ease both; animation-delay: 220ms; }
+	.stack       { animation: fadeUp 0.5s ease both; animation-delay: 300ms; }
+
+	/* Avatar */
+	.avatar-wrap {
+		position: relative;
+		width: 160px;
+		height: 160px;
+		margin-bottom: 1.75rem;
+	}
+
+	.avatar-wrap::before {
+		content: '';
+		position: absolute;
+		inset: -4px;
+		border-radius: 50%;
+		background: conic-gradient(var(--accent) 0deg, transparent 120deg, var(--accent) 240deg, transparent 360deg);
+		z-index: 0;
+	}
+
+	.avatar-wrap img {
+		position: relative;
+		z-index: 1;
+		width: 160px;
+		height: 160px;
+		border-radius: 50%;
+		object-fit: cover;
+		border: 3px solid var(--bg);
+		display: block;
+	}
+
+	/* Identity */
+	.identity {
+		margin-bottom: 1.5rem;
+	}
+
+	.role {
+		font-family: var(--font-mono);
+		font-size: 0.72rem;
+		letter-spacing: 0.12em;
+		text-transform: uppercase;
+		color: rgb(var(--gray));
+		margin: 0 0 0.6rem;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		gap: 0.5em;
+	}
+
+	.sep {
+		color: var(--accent);
+	}
+
+	.company {
+		color: var(--accent);
+		text-decoration: none;
+		transition: opacity 0.2s;
+	}
+
+	.company:hover {
+		opacity: 0.75;
+	}
+
+	.name {
+		font-family: var(--font-mono);
+		font-size: clamp(2rem, 5.5vw, 3.2rem);
+		font-weight: 500;
+		font-style: normal;
+		color: rgb(var(--black));
+		margin: 0;
+		line-height: 1.1;
+		letter-spacing: -0.03em;
+	}
+
+	/* Divider */
+	.divider {
+		display: flex;
+		align-items: center;
+		gap: 0.75rem;
+		width: 100%;
+		max-width: 320px;
+		margin: 1.5rem auto 2rem;
+	}
+
+	.divider span:not(.diamond) {
+		flex: 1;
+		height: 1px;
+		background: rgb(var(--gray-light));
+	}
+
+	.diamond {
+		font-size: 0.5rem;
+		color: var(--accent);
+		line-height: 1;
+	}
+
+	/* Bio */
+	.bio {
+		max-width: 520px;
+		font-size: 1.05rem;
+		line-height: 1.85;
+		color: rgb(var(--gray-dark));
+		margin-bottom: 2.25rem;
+	}
+
+	.bio p {
+		margin: 0 0 0.75em;
+	}
+
+	.bio p:last-child {
+		margin-bottom: 0;
+	}
+
+	.bio em {
+		font-style: italic;
+		color: rgb(var(--black));
+		font-family: var(--font-display);
+	}
+
+	/* Stack tags */
+	.stack {
+		display: flex;
+		flex-wrap: wrap;
+		gap: 0.5rem;
+		justify-content: center;
+	}
+
+	.tag {
+		font-family: var(--font-mono);
+		font-size: 0.68rem;
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		padding: 0.35em 0.9em;
+		border: 1px solid rgb(var(--gray-light));
+		border-radius: 2px;
+		color: rgb(var(--gray));
+		background: transparent;
+		cursor: default;
+		transition: border-color 0.2s, color 0.2s;
+	}
+
+	.tag:hover {
+		border-color: var(--accent);
+		color: var(--accent);
+	}
+</style>

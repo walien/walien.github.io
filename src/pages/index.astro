@@ -1,0 +1,56 @@
+---
+import About from '../components/About.astro';
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
+import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+	</head>
+	<body>
+		<Header />
+		<div class="sticky-theme-toggle">
+			<ThemeToggle />
+		</div>
+		<main>
+			<About></About>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+<style>
+	.sticky-theme-toggle {
+		position: fixed;
+		top: calc(56px + 1rem);
+		right: 1.5rem;
+		z-index: 1000;
+	}
+	.sticky-theme-toggle :global(button) {
+		width: 40px;
+		height: 40px;
+		border-radius: 50%;
+		background: rgb(var(--black));
+		color: var(--bg);
+		border: none;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0;
+		box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+		transition: opacity 0.2s, transform 0.15s;
+	}
+	.sticky-theme-toggle :global(button:hover) {
+		opacity: 0.85;
+		transform: scale(1.08);
+	}
+	.sticky-theme-toggle :global(button svg path) {
+		fill: var(--bg);
+	}
+</style>
